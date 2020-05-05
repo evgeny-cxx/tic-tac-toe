@@ -6,7 +6,9 @@ class App extends React.Component {
     super(props);
     this.state = {
       squares: Array(9).fill(null),
-      cout: 0
+      cout: 0,
+      status: 'Х начинает',
+      defaultClass: "gameInfo"
 
     }
     this.winnerLine = [
@@ -29,14 +31,23 @@ class App extends React.Component {
       if (this.state.squares[line[0]] === s
         && this.state.squares[line[1]] === s
         && this.state.squares[line[2]] === s) {
-        alert(s + ' Win!!');
+        this.setState({ status: 'Победил: ' + s })
+        this.setState({ defaultClass: 'gameWin' })
         setTimeout(() => {
           this.setState({ squares: Array(9).fill(null) });
           this.setState({ cout: 0 });
+          this.setState({ status: 'Х начинает' });
+          this.setState({ defaultClass: 'gameInfo' })
         },
-          3000)
+          1000)
       }
     }
+  }
+  gameReset = () => {
+    this.setState({ squares: Array(9).fill(null) });
+    this.setState({ cout: 0 });
+    this.setState({ status: 'Х начинает' });
+    this.setState({ defaultClass: 'gameInfo' })
   }
 
   clickHandler = (e) => {
@@ -44,21 +55,27 @@ class App extends React.Component {
     let currentSqueres = this.state.squares;
     if (currentSqueres[data] === null) {
       currentSqueres[data] = (this.state.cout % 2 === 0) ? 'X' : 'O';
+      currentSqueres[data] === 'X' ? this.setState({ status: 'O ходит' }) : this.setState({ status: 'X ходит' });
       this.setState({ cout: this.state.cout + 1 });
       this.setState({ squares: currentSqueres });
       console.log(currentSqueres);
+    } else {
+      this.setState({ status: 'Так нельзя!' })
     }
-    else { alert('Not!!!!!'); }
     this.isWinner();
   }
 
   render() {
 
-    return (< div className="App" > {
-      Object.keys(this.state.squares).map((block, index) => (< div className='ttt-grid'
-        onClick={this.clickHandler} key={index} data={index}>
-        {this.state.squares[block]}</div>)
-      )}
+    return (<div >
+      < div className="App" > {
+        Object.keys(this.state.squares).map((block, index) => (< div className='ttt-grid'
+          onClick={this.clickHandler} key={index} data={index}>
+          {this.state.squares[block]}</div>)
+        )}
+      </div>
+      <div className={this.state.defaultClass}>{this.state.status}</div>
+      <button className='gameReset btn btn-primary' onClick={this.gameReset}>Сброс игры</button>
     </div>)
   }
 }
