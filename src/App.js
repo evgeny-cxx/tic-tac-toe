@@ -1,6 +1,8 @@
 import React from 'react';
 import './App.css';
 
+import Footer from './Footer';
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -91,10 +93,12 @@ class App extends React.Component {
   }
 
   render() {
+    let title = this.props.title;
+    let contacts = this.props.contacts;
 
     return (
-      <div className='App App-header'>
-        <h1 className='gameName'>Крестики-Нолики</h1>
+      <div className='App App-header container '>
+        <h1 className='gameName'>{this.props.title}</h1>
         < div className="Game" > {
           Object.keys(this.state.squares).map((block, index) => (< div className='block'
             onClick={this.clickHandler} key={index} data={index}>
@@ -103,6 +107,9 @@ class App extends React.Component {
         </div>
         <div className={this.state.defaultClass}>{this.state.status}</div>
         <button className='gameReset button-primary button-round' onClick={this.gameReset}>Сброс игры</button>
+        <Footer title={title}
+          contacts={contacts}
+        />
       </div>)
   }
 }

@@ -1,0 +1,13 @@
+.section {
+  font-size: 18px;
+  color: #fff;
+}
+
+.ul {
+  display: inline-flex;
+  background: #2d3246;
+}
+
+li {
+  list-style-type: none;
+}

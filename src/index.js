@@ -4,9 +4,15 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
+
+let title = "Крестики-Нолики";
+let contacts = ['Copyright by cxx_BY', "+375298174777", "evgeny.cxx@gmail.com"];
+
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <App title={title}
+      contacts={contacts}
+    />
   </React.StrictMode>,
   document.getElementById('root')
 );
