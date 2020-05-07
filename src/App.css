@@ -13,9 +13,6 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
-}
 
 .Game {
   text-align: center;
@@ -69,3 +66,9 @@
   /* transform: translate(-50%, 0); */
   margin: 50px auto;
 } 
+
+.gameName {
+  text-align: center;
+  margin: 50px auto;
+  color: whitesmoke;
+}
