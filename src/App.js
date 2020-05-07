@@ -12,6 +12,9 @@ class App extends React.Component {
       defaultClass: "gameInfo"
 
     }
+    /**
+     * массив выйгрышных линий 
+     */
     this.winnerLine = [
       [0, 1, 2],
       [3, 4, 5],
@@ -23,6 +26,10 @@ class App extends React.Component {
       [2, 4, 6]
     ]
   }
+
+  /**
+   * метод определения победы или ничьей
+   */
   isWinner = () => {
     let s = (this.state.cout % 2 === 0) ? 'X' : 'O';
 
@@ -48,7 +55,9 @@ class App extends React.Component {
 
   }
 
-
+  /**
+   * сброс игры
+   */
   gameReset = () => {
     this.setState({ squares: Array(9).fill(null) });
     this.setState({ cout: 0 });
@@ -57,7 +66,9 @@ class App extends React.Component {
     this.setState({ defaultClass: 'gameInfo' })
   }
 
-
+  /**
+   * состояние ячеек при клике
+  */
   clickHandler = (e) => {
 
     let data = e.target.getAttribute('data');
