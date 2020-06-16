@@ -1,4 +1,4 @@
-Open site https://evgeny-cxx.github.io/tic-tac-toe/ 
+Open site https://evgeny-cxx.github.io/tic-tac-toe/ .
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

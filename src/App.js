@@ -98,7 +98,9 @@ class App extends React.Component {
 
     return (
       <div className='App App-header container '>
-        <h1 className='gameName'>{this.props.title}</h1>
+        <h1 className='gameName mb-0'>{this.props.title}</h1>
+        <div className='gameName mt-0'>Игроки по очереди кликают на ячейки на поле.
+        <div>Победит тот, кто быстрее заполнит три ячейки по горизонтали , вертикали или диагонали.</div></div>
         < div className="Game" > {
           Object.keys(this.state.squares).map((block, index) => (< div className='block'
             onClick={this.clickHandler} key={index} data={index}>
