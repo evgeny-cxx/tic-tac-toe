@@ -13,7 +13,7 @@ class Footer extends React.Component {
             >
                 <p >{title}</p>
                 {/* <p className="d-flex bd-highlight"> Copyright by cxx_BY</p> */}
-                <ul className="d-flex bd-highlight">
+                <ul className="row d-flex">
                     {contacts.map((elem, index) => (
                         <li className="p-2 flex-fill bd-highlight" key={index}>{elem}</li>
                     ))}
